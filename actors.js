@@ -1,0 +1,1 @@
+export const player = document.getElementById("player")
