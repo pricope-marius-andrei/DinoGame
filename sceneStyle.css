@@ -1,0 +1,39 @@
+#background {
+    position: relative;
+    height: 200px;
+    width: 500px;
+    background-color: rgba(208, 208, 245, 0.979);
+}
+
+#player {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    background-color: rgb(29, 13, 103);
+    animation-name: none;
+    animation-duration: 4s;
+}
+
+@keyframes movement {
+    0% {bottom: 0px; left: 20px;}
+    10%{bottom: 70px; left: 20px;}
+    40%{bottom: 0px; left: 20px;}
+}
+
+.enemy {
+    height: 20px;
+    width: 20px;
+    background-color: brown;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    animation-name: move;
+    animation-duration: 5s;
+}
+
+@keyframes move {
+    0%{right: 10px; bottom:0px;}
+    100%{right: 550px; bottom:0px;}
+}
