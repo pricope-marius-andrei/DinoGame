@@ -1,4 +1,5 @@
 import {player,EnemyOutside} from './actors.js'
+import {SpawnEnemies} from './spawnManager.js'
 
 player.style.animationName = "none"
 
@@ -7,6 +8,7 @@ function Update()
 {
     window.requestAnimationFrame(Update);
     EnemyOutside();
+    
 }
 
 window.requestAnimationFrame(Update);
@@ -23,3 +25,6 @@ window.addEventListener('keydown', function(event) {
         }
     }
 })
+
+//Spawn enemies
+setInterval(SpawnEnemies,2000);
