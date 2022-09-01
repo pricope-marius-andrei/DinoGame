@@ -19,7 +19,7 @@
 @keyframes movement {
     0% {bottom: 0px; left: 20px;}
     10%{bottom: 70px; left: 20px;}
-    40%{bottom: 0px; left: 20px;}
+    35%{bottom: 0px; left: 20px;}
 }
 
 .enemy {
@@ -39,5 +39,30 @@
 }
 
 #score {
+    font-family: Nunito,sans-serif;
+}
+
+.gameOver {
+    width: 500px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+#gameOverText {
+    display: none;
+    font-family: Nunito, sans-serif;
+    align-self: center;
+    font-size: 30px;
+}
+
+#resetButton {
+    display: none;
+    width: 100px;
+    height: 20px;
+    border: 0ch;
+    margin-top: 60px;
+    position: absolute;
+    align-self: center;
     font-family: Nunito, sans-serif;
 }

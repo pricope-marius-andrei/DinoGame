@@ -14,7 +14,6 @@ function Update()
     window.requestAnimationFrame(Update);
     EnemyOutside();
     updateScore(score)
-    console.log(isCollided(20,20,player,enemies[0]))
     if(!gameOver)
         if(isCollided(20,20,player,enemies[0]))
         {
@@ -46,4 +45,3 @@ window.addEventListener('keydown', function(event) {
 
 //Spawn enemies
 var spawnInterval = setInterval(SpawnEnemies,2000)
-    
