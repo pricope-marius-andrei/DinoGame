@@ -37,3 +37,7 @@
     0%{right: 10px; bottom:0px;}
     100%{right: 550px; bottom:0px;}
 }
+
+#score {
+    font-family: Nunito, sans-serif;
+}

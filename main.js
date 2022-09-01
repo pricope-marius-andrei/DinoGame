@@ -1,16 +1,20 @@
 import {player,EnemyOutside,enemies} from './actors.js'
 import {SpawnEnemies} from './spawnManager.js'
 import {isCollided} from './detectCollision.js'
-import {stopGame,gameOver} from './gameManager.js'
+import {stopGame,gameOver,updateScore} from './gameManager.js'
 
 player.style.animationName = "none"
+
+//values
+var score = 0;
 
 //Update loop
 function Update()
 {
     window.requestAnimationFrame(Update);
     EnemyOutside();
-
+    updateScore(score)
+    console.log(isCollided(20,20,player,enemies[0]))
     if(!gameOver)
         if(isCollided(20,20,player,enemies[0]))
         {
@@ -19,6 +23,10 @@ function Update()
             //Stop spawn interval
             clearInterval(spawnInterval)
         }
+    else
+    {
+        score++
+    }
 }
 
 window.requestAnimationFrame(Update);

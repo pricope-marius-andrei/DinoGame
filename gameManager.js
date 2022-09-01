@@ -1,5 +1,6 @@
 import { enemies, player } from "./actors.js"
 export var gameOver = false
+export let score = 0;
 
 export function stopGame()
 {
@@ -9,4 +10,10 @@ export function stopGame()
         enemies[i].style.animationPlayState = 'paused'
    }
    player.style.animationPlayState = 'paused'
+}
+
+export function updateScore(score)
+{
+    const scoreObject = document.getElementById("score")
+    scoreObject.textContent = "Score:" + score;
 }
