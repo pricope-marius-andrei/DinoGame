@@ -1,9 +1,12 @@
 import {player,EnemyOutside,enemies} from './actors.js'
 import {SpawnEnemies} from './spawnManager.js'
 import {isCollided} from './detectCollision.js'
-import {stopGame,gameOver,updateScore} from './gameManager.js'
+import {stopGame,gameOver,updateScore,Restart} from './gameManager.js'
+import {highScore} from './designElements.js'
 
+//initialize values
 player.style.animationName = "none"
+highScore.textContent = "HI: " + localStorage.getItem('highscore')
 
 //values
 var score = 0;
@@ -14,7 +17,6 @@ function Update()
     window.requestAnimationFrame(Update);
     EnemyOutside();
     updateScore(score)
-    console.log(isCollided(20,20,player,enemies[0]))
     if(!gameOver)
         if(isCollided(20,20,player,enemies[0]))
         {
@@ -22,6 +24,9 @@ function Update()
             stopGame()
             //Stop spawn interval
             clearInterval(spawnInterval)
+            Restart()
+            if(score > localStorage.getItem('highscore'))
+                localStorage.setItem('highscore', score)
         }
     else
     {
@@ -46,4 +51,3 @@ window.addEventListener('keydown', function(event) {
 
 //Spawn enemies
 var spawnInterval = setInterval(SpawnEnemies,2000)
-    
