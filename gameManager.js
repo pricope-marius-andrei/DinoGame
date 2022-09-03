@@ -1,7 +1,6 @@
 import { enemies, player } from "./actors.js"
-import { gameOverText, resetButton, highScore } from "./designElements.js";
+import { gameOverText, resetButton} from "./designElements.js";
 export var gameOver = false
-export var highScoreNumber = 0
 
 export function stopGame()
 {
@@ -15,10 +14,10 @@ export function stopGame()
    resetButton.style.display = 'inline'
 }
 
-export function updateScore(score)
+export function UpdateScore(score)
 {
     const scoreObject = document.getElementById("score")
-    scoreObject.textContent = "Score:" + score;
+    scoreObject.textContent = "Score: " + score;
 }
 
 export function Restart()
@@ -27,3 +26,4 @@ export function Restart()
         window.location.reload()
     })
 }
+
