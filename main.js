@@ -1,24 +1,27 @@
 import {player,EnemyOutside,enemies} from './actors.js'
 import {SpawnEnemies} from './spawnManager.js'
 import {isCollided} from './detectCollision.js'
-import {stopGame,gameOver,updateScore,Restart} from './gameManager.js'
+import {stopGame,gameOver,UpdateScore,Restart} from './gameManager.js'
 import {highScore} from './designElements.js'
 
 //initialize values
 player.style.animationName = "none"
-highScore.textContent = "HI: " + localStorage.getItem('highscore')
+if(localStorage.getItem('highscore'))
+    highScore.textContent = "HI: " + localStorage.getItem('highscore')
 
 //values
 var score = 0;
+var dificulty = 1500;
 
 //Update loop
 function Update()
 {
     window.requestAnimationFrame(Update);
     EnemyOutside();
-    updateScore(score)
+    UpdateScore(score)
+
     if(!gameOver)
-        if(isCollided(20,20,player,enemies[0]))
+        if(isCollided(40,40,20,20,player,enemies[0]))
         {
             //I lost the game
             stopGame()
@@ -44,10 +47,10 @@ window.addEventListener('keydown', function(event) {
             player.style.animationName = "movement";
             this.setTimeout(function(){
                 player.style.animationName = "none"
-            },1300); 
+            },1100); 
         }
     }
 })
 
 //Spawn enemies
-var spawnInterval = setInterval(SpawnEnemies,2000)
+var spawnInterval = setInterval(SpawnEnemies,dificulty)

@@ -6,26 +6,24 @@
 }
 
 #player {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
     position: absolute;
     bottom: 0px;
     left: 20px;
-    background-color: rgb(29, 13, 103);
     animation-name: none;
-    animation-duration: 4s;
+    animation-duration: 5s;
 }
 
 @keyframes movement {
     0% {bottom: 0px; left: 20px;}
-    10%{bottom: 70px; left: 20px;}
-    35%{bottom: 0px; left: 20px;}
+    5%{bottom: 70px; left: 20px;}
+    20%{bottom: 0px; left: 20px;}
 }
 
 .enemy {
-    height: 20px;
-    width: 20px;
-    background-color: brown;
+    height: 30px;
+    width: 30px;
     position: absolute;
     bottom: 0px;
     right: 0px;

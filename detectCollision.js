@@ -1,10 +1,10 @@
 
-function pointCollide(x, y, xEnemy, yEnemy, heightPlayer, widthPlayer)
+function pointCollide(x, y, xEnemy, yEnemy, heightEnemy, widthEnemy)
 {
-    return x >= xEnemy && x <= xEnemy + widthPlayer && y >= yEnemy - heightPlayer && y <= yEnemy
+    return x >= xEnemy  && x <= xEnemy + widthEnemy  && y >= yEnemy - heightEnemy  && y <= yEnemy
 }
 
-export function isCollided(heightPlayer, widthPlayer, player, enemy)
+export function isCollided(heightPlayer, widthPlayer, heightEnemy, widthEnemy, player, enemy)
 {
     const positionPlayer = player.getBoundingClientRect()
     const positionEnemy = enemy.getBoundingClientRect()
@@ -12,10 +12,10 @@ export function isCollided(heightPlayer, widthPlayer, player, enemy)
     const yPlayer = positionPlayer.y;
     const xEnemy = positionEnemy.x;
     const yEnemy = positionEnemy.y;
-    return pointCollide(xPlayer,yPlayer,xEnemy,yEnemy,heightPlayer,widthPlayer) || 
-    pointCollide(xPlayer + widthPlayer, yPlayer, xEnemy, yEnemy, heightPlayer, widthPlayer) ||
-    pointCollide (xPlayer, yPlayer - heightPlayer, xEnemy,yEnemy,heightPlayer, widthPlayer) ||
-    pointCollide (xPlayer + widthPlayer, yPlayer - heightPlayer, xEnemy, yEnemy, heightPlayer,widthPlayer)
+    return pointCollide(xPlayer,yPlayer,xEnemy,yEnemy, heightEnemy, widthEnemy) || 
+    pointCollide(xPlayer + widthPlayer - 5, yPlayer, xEnemy, yEnemy, heightEnemy, widthEnemy) ||
+    pointCollide (xPlayer, yPlayer - heightPlayer - 5, xEnemy, yEnemy, heightEnemy, widthEnemy) ||
+    pointCollide (xPlayer + widthPlayer - 5, yPlayer - heightPlayer -5, xEnemy, yEnemy, heightEnemy, widthEnemy)
 
 }
 
